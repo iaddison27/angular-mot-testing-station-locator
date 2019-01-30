@@ -1,0 +1,10 @@
+<ng-container *ngIf="hasResults()">
+  <div *ngFor="let result of pageResults">
+    <test-centre-result [result]="result"></test-centre-result>
+  </div>
+  <ngb-pagination [collectionSize]="results.length" [(page)]="currentPage" [pageSize]="pageSize" [boundaryLinks]="true" [maxSize]="5" [rotate]="true" (pageChange)="onPageChange()"></ngb-pagination>
+</ng-container>
+
+<ngb-alert *ngIf="noResults()" [dismissible]="false">
+  <strong>No results found</strong>
+</ngb-alert>

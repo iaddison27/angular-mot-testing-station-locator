@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<div class="container">
+  <search-form [centres]="centres" (resultsChange)="onResultsChange($event)" (mapCentreChange)="onMapCentreChange($event)"></search-form>
+  <results [results]="results" [mapCentre]="mapCentre"></results>
+</div>
+
+
+
+

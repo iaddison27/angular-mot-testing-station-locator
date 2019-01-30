@@ -1,0 +1,6 @@
+<div class="form-row">
+  <div class="form-group col-md-12 mb-0">
+    <label for="typeahead-basic">Garage Name</label>
+    <input id="typeahead-basic" type="text" class="form-control" placeholder="Enter a garage name..." [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="formatter" [inputFormatter]="formatter"  (selectItem)="select($event)"/>
+  </div>
+</div>

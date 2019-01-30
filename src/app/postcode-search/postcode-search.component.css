@@ -1,0 +1,7 @@
+::ng-deep .popover {
+  max-width: 600px;
+}
+
+#mot-class-help {
+  cursor: pointer;
+}

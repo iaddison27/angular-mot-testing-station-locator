@@ -1,0 +1,86 @@
+<form [formGroup]="form" (ngSubmit)="searchByPostcode()">
+  <div class="form-row">
+    <div class="form-group col-md-3 mb-0">
+      <label for="postcode">Postcode</label>
+      <input id="postcode" formControlName="postcode" type="text" class="form-control" placeholder="e.g. NE1 1RR" />
+    </div>
+    <div class="form-group col-md-2 mb-0">
+      <label for="postcode">Search Radius (miles)</label>
+      <input id="searchRadius" formControlName="searchRadius" type="text" class="form-control" placeholder="e.g. 5" />
+    </div>
+    <div class="form-group col-md-6 mb-0">
+      <label for="postcode">MOT Class</label> <i id="mot-class-help" class="fa fa-question-circle" aria-hidden="true" placement="bottom" [ngbPopover]="motClassHelpContent"></i><br/>
+      <div class="form-check form-check-inline">
+        <input id="class1" class="form-check-input" type="radio" name="class" formControlName="class" value="1"/>
+        <label for="class1" class="form-check-label">Class 1</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="class2" class="form-check-input" type="radio" name="class" formControlName="class" value="2"/>
+        <label for="class2" class="form-check-label">Class 2</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="class3" class="form-check-input" type="radio" name="class" formControlName="class" value="3"/>
+        <label for="class3" class="form-check-label">Class 3</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="class4" class="form-check-input" type="radio" name="class" formControlName="class" value="4"/>
+        <label for="class4" class="form-check-label">Class 4</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input id="class5" class="form-check-input" type="radio" name="class" formControlName="class" value="5"/>
+        <label for="class5" class="form-check-label">Class 5</label>
+      </div>
+      <div class="form-check form-check-inline">
+       <input id="class7" class="form-check-input" type="radio" name="class" formControlName="class" value="7"/>
+        <label for="class7" class="form-check-label">Class 7</label>
+      </div>
+    </div>
+    <div class="form-group col-md-1 mb-0">
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Search</button>
+    </div>
+  </div>
+</form>
+
+<ng-template #motClassHelpContent>
+  <dl>
+    <dt>3</dt>
+    <dd>3-wheeled vehicles (up to 450kg unladen weight)</dd>
+  </dl>
+
+  <dl>
+    <dt>4</dt>
+    <dd>3-wheeled vehicles (over 450kg unladen weight)</dd>
+    <dd>Cars (up to 8 passenger seats)</dd>
+    <dd>Motor caravans</dd>
+    <dd>Quads (max unladen weight 400kg - for goods vehicles and max net power of 15kw)</dd>
+    <dd>Dual purpose vehicles</dd>
+    <dd>Private hire and public service vehicles (up to 8 seats)</dd>
+    <dd>Ambulances and taxis</dd>
+    <dd>Private passenger vehicles and ambulances (9 to 12 passenger seats)</dd>
+    <dd>Goods vehicles (up to 3,000kg design gross weight)</dd>
+    <dd></dd>
+  </dl>
+
+  <dl>
+    <dt>4a</dt>
+    <dd>Class 4 vehicles (9 to 12 passenger seats) with a seat belt installation check</dd>
+  </dl>
+
+  <dl>
+    <dt>5</dt>
+    <dd>Private passenger vehicles and ambulances (13 to 16 passenger seats)</dd>
+    <dd>Private passenger vehicles and ambulances (more than 16 passenger seats)</dd>
+    <dd>Playbuses</dd>
+  </dl>
+
+  <dl>
+    <dt>5a</dt>
+    <dd>Class 5 vehicles (13 to 16 passenger seats) with a seat belt installation check</dd>
+    <dd>Class 5 vehicles (over 16 passenger seats) with a seat belt installation check</dd>
+  </dl>
+
+  <dl>
+    <dt>7</dt>
+    <dd>Goods vehicles (over 3,000kg up to 3,500kg design gross weight)</dd>
+  </dl>
+</ng-template>
