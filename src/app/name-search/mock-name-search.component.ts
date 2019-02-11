@@ -1,9 +1,8 @@
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/map';
 import { NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap';
+import { map, distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { TestCentreResult } from '../model/test-centre-result.interface';
 import { TestCentre } from '../model/test-centre.interface';
 
@@ -21,13 +20,13 @@ export class MockNameSearchComponent {
   @Output()
   public selected = new EventEmitter<TestCentreResult>();
 
-  search = (text$: Observable<string>) => text$
-    .debounceTime(200)
-    .distinctUntilChanged()
-    .map(term => term.length < 2 ? []
+  search = (text$: Observable<string>) => text$.pipe(
+    debounceTime(200),
+    distinctUntilChanged(),
+    map(term => term.length < 2 ? []
       : this.centres.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1)
         .slice(0, 10)
-    )
+    ),)
 
   public formatter(result: TestCentre): TestCentre {
     return undefined;

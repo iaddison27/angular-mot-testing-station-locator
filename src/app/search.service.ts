@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/observable/of';
+
 import { TestCentre} from './model/test-centre.interface';
 import { LatLng } from './model/lat-lng.interface';
 import { TestCentreResult } from './model/test-centre-result.interface';

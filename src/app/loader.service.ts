@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Observable } from 'rxjs';
+
 import { AppSettings } from './app.settings';
 import { TestCentre } from './model/test-centre.interface';
 
@@ -15,3 +15,4 @@ export class LoaderService {
   }
 
 }
+
