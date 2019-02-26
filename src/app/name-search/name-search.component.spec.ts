@@ -1,7 +1,7 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
 import { NameSearchComponent } from './name-search.component';
 import { aTestCentre, aTestCentreResult } from '../test-helpers';
 import { NameSearchService } from '../name-search.service';
@@ -43,7 +43,7 @@ describe('NameSearchComponent', () => {
         aTestCentre('X', 'Garage 1', []),
         aTestCentre('Y', 'Car Menders', [])
       ]);
-      componentUnderTest.search(Observable.of('ar')).subscribe(results => {
+      componentUnderTest.search(of('ar')).subscribe(results => {
         expect(results.length).toBe(2);
         expect(results[0].name).toBe('Garage 1');
         expect(results[1].name).toBe('Car Menders');
@@ -51,7 +51,7 @@ describe('NameSearchComponent', () => {
     });
 
     it('should not filter results if only 1 character input', () => {
-      componentUnderTest.search(Observable.of('a')).subscribe(results => {
+      componentUnderTest.search(of('a')).subscribe(results => {
         spyOn(mockNameSearchService, 'searchByName');
         expect(results.length).toBe(0);
         expect(mockNameSearchService.searchByName).not.toHaveBeenCalled();

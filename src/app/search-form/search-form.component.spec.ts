@@ -1,5 +1,5 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchFormComponent } from './search-form.component';
 import { MockNameSearchComponent } from '../name-search/mock-name-search.component';
@@ -50,7 +50,7 @@ describe('SearchFormComponent', () => {
 
   describe('searchByPostcode tests', () => {
     beforeEach(() => {
-      spyOn(mockPostcodeService, 'getLatLng').and.returnValue(Observable.of({
+      spyOn(mockPostcodeService, 'getLatLng').and.returnValue(of({
         result: aLatLng()
       }));
     });

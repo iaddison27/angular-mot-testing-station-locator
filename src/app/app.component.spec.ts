@@ -1,5 +1,5 @@
 import { TestBed, async, ComponentFixture, tick, fakeAsync } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
 import { AppComponent } from './app.component';
 import { LoaderService } from './loader.service';
 import { MockTestCentreService } from './mock-test-centre.service';
@@ -44,7 +44,7 @@ describe('AppComponent', () => {
   }));
 
   it('should initialise test centres on load', fakeAsync(() => {
-    spyOn(mockLoaderService, 'getCentres').and.returnValue(Observable.of([
+    spyOn(mockLoaderService, 'getCentres').and.returnValue(of([
       aTestCentre('ABC001', 'Test Centre A', []),
       aTestCentre('ABC002', 'Test Centre B', []),
     ]));
