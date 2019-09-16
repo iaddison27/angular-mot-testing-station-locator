@@ -15,7 +15,7 @@ describe('PostcodeSearchComponent', () => {
       ],
       imports: [
         ReactiveFormsModule,
-        NgbModule.forRoot()
+        NgbModule
       ],
       providers: [
 

@@ -26,7 +26,7 @@ describe('SearchFormComponent', () => {
         MockPostcodeSearchComponent
       ],
       imports: [
-        NgbModule.forRoot()
+        NgbModule
       ],
       providers: [
         { provide: SearchService, useClass: MockSearchService },

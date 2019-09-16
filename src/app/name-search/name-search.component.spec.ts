@@ -20,7 +20,7 @@ describe('NameSearchComponent', () => {
       ],
       imports: [
         FormsModule,
-        NgbModule.forRoot()
+        NgbModule
       ],
       providers: [
         { provide: NameSearchService, useClass: MockNameSearchService }

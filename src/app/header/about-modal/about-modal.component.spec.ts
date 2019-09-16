@@ -16,7 +16,7 @@ describe('AboutModalComponent', () => {
         AboutModalComponent
       ],
       imports: [
-        NgbModule.forRoot()
+        NgbModule
       ],
       providers: [
         NgbActiveModal

@@ -17,7 +17,7 @@ describe('ResultListComponent', () => {
         MockTestCentreResultComponent
       ],
       imports: [
-        NgbModule.forRoot()
+        NgbModule
       ],
       providers: [
 

@@ -15,7 +15,7 @@ describe('HeaderComponent', () => {
         HeaderComponent
       ],
       imports: [
-        NgbModule.forRoot()
+        NgbModule
       ],
       providers: [
 
