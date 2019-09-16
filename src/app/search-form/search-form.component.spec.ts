@@ -50,16 +50,14 @@ describe('SearchFormComponent', () => {
 
   describe('searchByPostcode tests', () => {
     beforeEach(() => {
-      spyOn(mockPostcodeService, 'getLatLng').and.returnValue(of({
-        result: aLatLng()
-      }));
+      spyOn(mockPostcodeService, 'getLatLng').and.returnValue(of(aLatLng()));
     });
 
     it('should emit results when searchByPostcode', () => {
       spyOn(componentUnderTest.resultsChange, 'emit');
       performSearch();
 
-      expect(componentUnderTest.resultsChange.emit).toHaveBeenCalledWith(aTestCentreResult('01ABC', 'Test Centre 1', 10));
+      expect(componentUnderTest.resultsChange.emit).toHaveBeenCalledWith([aTestCentreResult('01ABC', 'Test Centre 1', 10)]);
     });
 
     it('should call searchService with correct parameters', () => {
@@ -76,7 +74,7 @@ describe('SearchFormComponent', () => {
     }
 
     function performSearch(): void {
-      spyOn(mockSearchService, 'search').and.returnValue(aTestCentreResult('01ABC', 'Test Centre 1', 10));
+      spyOn(mockSearchService, 'search').and.returnValue([aTestCentreResult('01ABC', 'Test Centre 1', 10)]);
 
       componentUnderTest.searchByPostcode({
         postcode: 'SW1 2WW',
