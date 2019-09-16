@@ -44,7 +44,7 @@ import { NameSearchService } from './name-search.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule.forRoot(),
+    NgbModule,
     LeafletModule.forRoot()
   ],
   providers: [LoaderService, SearchService, NameSearchService, PostcodeService, DistanceService, LeafletService],
